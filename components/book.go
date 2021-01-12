@@ -22,13 +22,13 @@ type Book struct {
 }
 
 func NewBook() *golive.LiveComponent {
-	fmt.Println()
 	return golive.NewLiveComponent("Book", &Book{
 		Blocks: make([]*Block, 0),
 	})
 }
 
 func (b *Book) Mounted(_ *golive.LiveComponent) {
+	// create Stdout handler
 	b.interpreter = interp.New(interp.Options{})
 	b.interpreter.Use(stdlib.Symbols)
 
