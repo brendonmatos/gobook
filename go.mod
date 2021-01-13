@@ -1,10 +1,10 @@
-module github.com/brendonferreira/gobook
+module github.com/brendonmatos/gobook
 
 go 1.15
 
 require (
 	github.com/andybalholm/brotli v1.0.1 // indirect
-	github.com/brendonferreira/golive v0.0.0-20210112003002-6d32307fc314
+	github.com/brendonmatos/golive v0.0.0-20210112213449-d5457f9bbdb2
 	github.com/gofiber/fiber/v2 v2.3.2
 	github.com/gofiber/websocket/v2 v2.0.2
 	github.com/klauspost/compress v1.11.6 // indirect
