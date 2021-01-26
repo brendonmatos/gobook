@@ -18,5 +18,6 @@ gobook
 
 ## Demo
 ![go book](demo.jpg)
+![go book](demo.gif)
 
 
