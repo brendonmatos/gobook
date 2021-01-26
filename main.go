@@ -1,10 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"github.com/brendonmatos/gobook/components"
 	"github.com/brendonmatos/golive"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/websocket/v2"
+	"github.com/skratchdot/open-golang/open"
+	"net"
 )
 
 func main() {
@@ -12,6 +15,10 @@ func main() {
 	app := fiber.New()
 	liveServer := golive.NewServer()
 
+	listener, err := net.Listen("tcp", "127.0.0.1:0")
+	if err != nil {
+		panic(err)
+	}
 	app.Get("/", liveServer.CreateHTMLHandler(components.NewBook, golive.PageContent{
 		Lang:  "us",
 		Title: "Hello world",
@@ -20,5 +27,7 @@ func main() {
 
 	app.Get("/ws", websocket.New(liveServer.HandleWSRequest))
 
-	_ = app.Listen(":3000")
+	_ = open.Start("http://" + listener.Addr().String())
+
+	panic(app.Listener(listener))
 }

@@ -111,7 +111,6 @@ func (b *Book) TemplateHandler(_ *golive.LiveComponent) string {
 									{{ end }}
 									
 									{{ if ne $block.ErrOut "" }}
-									
 										<div class="whitespace-nowrap text-right w-32 pr-2">ErrOut [{{$index}}]:</div>
 										<div class="border w-full border-red-400">
 											{{ $block.ErrOut }}
